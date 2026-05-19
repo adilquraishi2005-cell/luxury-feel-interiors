@@ -612,6 +612,228 @@ header.scrolled {
   border-color: var(--gold-primary);
 }
 
+/* Residential Gallery Section */
+.residential-gallery {
+  background: var(--bg-primary);
+  padding: 100px 5% 80px 5%;
+}
+
+.gallery-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-muted);
+  padding: 10px 24px;
+  font-size: 0.8rem;
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.filter-btn:hover, .filter-btn.active {
+  border-color: var(--gold-primary);
+  color: var(--gold-primary);
+  box-shadow: var(--gold-glow);
+  background: rgba(212, 175, 55, 0.02);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  transition: all 0.5s ease;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
+  background: var(--bg-tertiary);
+  transition: var(--transition-smooth);
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--glass-border);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5), var(--gold-glow);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: brightness(85%);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+  filter: brightness(100%);
+}
+
+.gallery-item-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(10, 10, 11, 0.9) 0%, rgba(10, 10, 11, 0.3) 60%, transparent 100%);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  transition: var(--transition-smooth);
+}
+
+.gallery-item:hover .gallery-item-overlay {
+  opacity: 1;
+}
+
+.gallery-item-cat {
+  font-size: 0.7rem;
+  color: var(--gold-primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.gallery-item-title {
+  font-size: 1.1rem;
+  font-family: var(--font-serif);
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 11, 0.95);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-modal.active {
+  display: flex;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 85%;
+  max-height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 70vh;
+  border-radius: 4px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8), var(--gold-glow);
+  object-fit: contain;
+}
+
+.lightbox-caption {
+  margin-top: 15px;
+  color: var(--text-light);
+  text-align: center;
+  font-family: var(--font-sans);
+}
+
+.lightbox-title {
+  font-family: var(--font-serif);
+  color: var(--gold-primary);
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+}
+
+.lightbox-cat {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -45px;
+  right: 0;
+  font-size: 2.2rem;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.lightbox-close:hover {
+  color: var(--gold-primary);
+}
+
+.lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  color: var(--text-light);
+  cursor: pointer;
+  padding: 10px;
+  transition: var(--transition-smooth);
+  user-select: none;
+}
+
+.lightbox-arrow:hover {
+  color: var(--gold-primary);
+}
+
+.lightbox-prev {
+  left: -80px;
+}
+
+.lightbox-next {
+  right: -80px;
+}
+
+@media (max-width: 768px) {
+  .lightbox-prev {
+    left: -40px;
+  }
+  .lightbox-next {
+    right: -40px;
+  }
+  .lightbox-arrow {
+    font-size: 2rem;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 /* Why Choose Us Section */
 .why-choose {
   background: var(--bg-primary);
