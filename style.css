@@ -1110,6 +1110,15 @@ header.scrolled {
   line-height: 1.5;
 }
 
+.contact-text-box p a {
+  color: inherit;
+  transition: var(--transition-smooth);
+}
+
+.contact-text-box p a:hover {
+  color: var(--gold-primary);
+}
+
 .contact-form-container {
   flex: 1.2;
   background: var(--bg-tertiary);
