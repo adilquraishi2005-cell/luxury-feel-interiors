@@ -38,6 +38,11 @@
           <li><a href="#gallery" class="nav-link">Gallery</a></li>
           <li><a href="#why-choose" class="nav-link">Why Choose Us</a></li>
           <li><a href="#contact" class="nav-link cta-nav-btn">Consultation</a></li>
+          <li>
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Light/Dark Theme">
+              <i class="fas fa-sun"></i>
+            </button>
+          </li>
         </ul>
       </nav>
       
@@ -877,6 +882,31 @@
       } else if (e.key === 'ArrowRight') {
         currentIndex = (currentIndex + 1) % activeItems.length;
         updateLightboxContent();
+      }
+    });
+
+    // Dark/Light Mode Theme Toggle
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = themeToggleBtn.querySelector('i');
+    
+    // Check localStorage or device preference for light mode
+    if (localStorage.getItem('theme') === 'light') {
+      document.body.classList.add('light-mode');
+      themeIcon.className = 'fas fa-moon';
+    } else {
+      themeIcon.className = 'fas fa-sun';
+    }
+    
+    themeToggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      const isLight = document.body.classList.contains('light-mode');
+      
+      if (isLight) {
+        themeIcon.className = 'fas fa-moon';
+        localStorage.setItem('theme', 'light');
+      } else {
+        themeIcon.className = 'fas fa-sun';
+        localStorage.setItem('theme', 'dark');
       }
     });
   </script>

@@ -23,6 +23,51 @@
   --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Light Mode Variables Override */
+body.light-mode {
+  --bg-primary: #FAFAFB;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #F1F1F4;
+  --text-light: #121215;
+  --text-muted: #55555C;
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(212, 175, 55, 0.25);
+  --gold-glow: 0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+/* Theme Toggle Button Styling */
+.theme-toggle-btn {
+  background: transparent;
+  border: 1px solid var(--gold-primary);
+  color: var(--gold-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: var(--transition-smooth);
+  box-shadow: var(--gold-glow);
+  margin-left: 10px;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--gold-gradient);
+  color: var(--bg-primary);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+  transform: rotate(30deg);
+}
+
+@media (max-width: 768px) {
+  .theme-toggle-btn {
+    margin-top: 20px;
+    align-self: center;
+    margin-left: 0;
+  }
+}
+
 /* Reset & Base Styles */
 * {
   margin: 0;
